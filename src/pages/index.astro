@@ -13,7 +13,7 @@ function formatDate(date: Date) {
   });
 }
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="James Ashley">
@@ -21,7 +21,7 @@ const base = import.meta.env.BASE_URL;
     {posts.map((post) => (
       <li class="post-item">
         <p class="post-date">{formatDate(post.data.date)}</p>
-        <a href={`${base}blog/${post.slug}`} class="post-title">{post.data.title}</a>
+        <a href={`${base}/writing/${post.id.replace(/\.mdx?$/, '')}`} class="post-title">{post.data.title}</a>
         {post.data.description && (
           <p class="post-description">{post.data.description}</p>
         )}
