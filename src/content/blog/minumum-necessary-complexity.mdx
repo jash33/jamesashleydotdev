@@ -4,6 +4,10 @@ date: 2026-06-30
 description: Complexity, AI, and the Drift Away from the Ideal Code Base
 ---
 
+import { Image } from 'astro:assets';
+import diagram from '../../assets/diagram.png';
+import reposInReality from '../../assets/repos-in-reality.png';
+
 "Complexity is anything related to the structure of a software system that makes it hard to understand and modify the system. Complexity is caused by two things: dependencies and obscurity."
 
 -- John Ousterhout, <i>A Philosophy of Software Design</i>
@@ -16,12 +20,7 @@ Files typically contain a grouped set of related units of logic (functions, clas
 
 These units of logic themselves, and the connections between them, create complexity. For features to exist, some amount of logic, and bonds between related units of logic, must exist. So of course, some amount of complexity is necessary.
 
-<img src="/jamesashleydotdev/diagram.png" alt="Diagram of files as connected boxes, representing code base complexity" style="width: 120%;
-    max-width: none;
-    flex-shrink: 0;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);" />
+<Image src={diagram} alt="Diagram of files as connected boxes, representing code base complexity" style="width: 120%; max-width: none; flex-shrink: 0; position: relative; left: 50%; transform: translateX(-50%);" />
 
 ## Most codebases have extra complexity
 
@@ -29,12 +28,7 @@ In reality, most units of logic in a codebase are not as concise or clear as the
 
 In addition, structural complexity between units of logic can exist. A unit of logic may be grouped somewhere it does not belong, or cannot be easily found. Units of logic can be tightly coupled in ways such that one unit of logic cannot be understood (or modified) without understanding another. When units of logic relate in these ways, additional complexity is created.
 
-<img src="/jamesashleydotdev/repos in reality.png" alt="Diagram of files as connected boxes, representing code base complexity" style="width: 110%;
-    max-width: none;
-    flex-shrink: 0;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);" />
+<Image src={reposInReality} alt="Diagram of files as connected boxes, representing code base complexity" style="width: 110%; max-width: none; flex-shrink: 0; position: relative; left: 50%; transform: translateX(-50%);" />
 
 ## The Ideal State: Minimum Necessary Complexity
 
@@ -60,5 +54,5 @@ Those that are more fundamental include:
 
 <i> Creating bugs that do not surface in code review or tests. (obscurity) </i>
 
-For a deeper dive: <br>
+For a deeper dive: <br />
 https://medium.com/@gordongibson_37627/excerpts-from-a-philosophy-of-software-design-761f03629838

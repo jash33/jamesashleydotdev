@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 
 // TODO: set site to https://YOUR_GITHUB_USERNAME.github.io
 // If your repo name matches this folder (jamesashleydotdev), keep base as-is.
@@ -6,4 +7,5 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://YOUR_GITHUB_USERNAME.github.io',
   base: '/jamesashleydotdev',
+  integrations: [mdx()],
 });
