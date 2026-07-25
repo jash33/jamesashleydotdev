@@ -9,7 +9,8 @@ interface Props {
 const { title, description = 'Writing by James Ashley.' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const path = Astro.url.pathname;
-const isBlog = path === base || path === base + '/' || path.startsWith(base + '/writing');
+const isBlog = path.startsWith(base + '/writing');
+const isReading = path.startsWith(base + '/reading');
 const isAbout = path.startsWith(base + '/about');
 ---
 
@@ -31,9 +32,10 @@ const isAbout = path.startsWith(base + '/about');
   <body>
     <div class="container">
       <header class="site-header">
-        <a href={base} class="site-name">James Ashley</a>
+        <a href={`${base}/`} class="site-name">James Ashley</a>
         <nav class="site-nav">
-          <a href={base} class={isBlog ? 'active' : ''}>Writing</a>
+          <a href={`${base}/writing`} class={isBlog ? 'active' : ''}>Writing</a>
+          <a href={`${base}/reading`} class={isReading ? 'active' : ''}>Reading</a>
           <a href={`${base}/about`} class={isAbout ? 'active' : ''}><del>About</del></a>
         </nav>
       </header>
