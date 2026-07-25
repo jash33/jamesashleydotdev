@@ -93,6 +93,13 @@ p {
   flex-direction: column;
 }
 
+@media (max-width: 768px) {
+  .container {
+    margin: 0;
+    padding: 0 1.25rem;
+  }
+}
+
 @media (min-width: 1800px) {
   .container {
     margin: 0 25%;
