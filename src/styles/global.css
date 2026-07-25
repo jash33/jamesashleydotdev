@@ -327,3 +327,8 @@ p {
 .prose a:hover {
   border-color: var(--text);
 }
+
+.textlink {
+  color: #1865ca;
+  font-weight: 300;
+}
