@@ -1,6 +1,6 @@
 ---
 import { Font } from 'astro:assets';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 
 interface Props {
@@ -31,7 +31,7 @@ const isAbout = path.startsWith(base + '/about');
       rel="stylesheet"
     />
     <Font cssVariable="--font-sans" preload />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <div class="container">

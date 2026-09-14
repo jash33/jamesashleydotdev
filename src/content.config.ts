@@ -1,7 +1,9 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const writing = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/writing' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
@@ -11,10 +13,10 @@ const writing = defineCollection({
 });
 
 const reading = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/reading' }),
   schema: z.object({
     title: z.string(),
-    url: z.string().url(),
+    url: z.url(),
     date: z.coerce.date(),
     description: z.string().optional(),
   }),
