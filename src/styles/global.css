@@ -230,6 +230,13 @@ p {
   justify-content: center;
 }
 
+@media (min-width: 769px) {
+  .prose,
+  .prose .back-link {
+    text-align: left;
+  }
+}
+
 .back-link {
   display: inline-block;
   font-size: 0.72rem;
