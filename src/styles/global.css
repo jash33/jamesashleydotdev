@@ -108,6 +108,39 @@ p {
     margin: 0;
     padding: 0 1.25rem;
   }
+
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    max-width: 100%;
+    row-gap: 0.75rem;
+  }
+
+  main,
+  .post-list,
+  .post-item,
+  .prose {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .post-item,
+  .prose {
+    overflow-wrap: anywhere;
+  }
+
+  .prose img,
+  .prose picture,
+  .prose video,
+  .prose iframe,
+  .prose pre {
+    max-width: 100% !important;
+  }
 }
 
 @media (min-width: 1800px) {
@@ -264,6 +297,7 @@ p {
 
 .prose .back-link {
   border-bottom: none;
+  margin-bottom: 0.6rem;
 }
 
 .prose h1 {
