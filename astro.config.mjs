@@ -1,8 +1,8 @@
-import { defineConfig, fontProviders } from 'astro/config';
-import mdx from '@astrojs/mdx';
+import { defineConfig, fontProviders } from "astro/config";
+import mdx from "@astrojs/mdx";
 
 export default defineConfig({
-  site: 'https://jamesashley.dev',
+  site: "https://jamesashley.dev",
   integrations: [mdx()],
   vite: {
     environments: {
@@ -10,7 +10,7 @@ export default defineConfig({
         optimizeDeps: {
           // Astro's content loader imports picomatch, which is CommonJS.
           // Prebundle it before the ESM-only content module runner loads it.
-          include: ['picomatch'],
+          include: ["picomatch"],
         },
       },
     },
@@ -18,9 +18,9 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.google(),
-      name: 'Inter',
-      cssVariable: '--font-sans',
-      styles: ['normal'],
+      name: "Inter",
+      cssVariable: "--font-sans",
+      styles: ["normal"],
       weights: [300, 400, 500],
     },
   ],

@@ -8,17 +8,30 @@ import { Image } from "astro:assets";
 import diagram from "../../assets/diagram.png";
 import reposInReality from "../../assets/repos-in-reality.png";
 
-"Complexity is anything related to the structure of a software system that makes it hard to understand and modify the system. Complexity is caused by two things: dependencies and obscurity."
+"Complexity is anything related to the structure of a software system that makes
+it hard to understand and modify the system. Complexity is caused by two things:
+dependencies and obscurity."
 
 -- John Ousterhout, <i>A Philosophy of Software Design</i>
 
 ## Some amount of complexity is inherent and unavoidable
 
-To reiterate some basics: any decently sized codebase supports many features. These features are comprised of units of logic, which take many shapes across a stack - React components, Java classes, Python scripts. These chunks of modular logic are spread across distinct files.
+To reiterate some basics: any decently sized codebase supports many features.
+These features are comprised of units of logic, which take many shapes across a
+stack - React components, Java classes, Python scripts. These chunks of modular
+logic are spread across distinct files.
 
-Files typically contain a grouped set of related units of logic (functions, classes, components, etc.), which are related to each other by type or domain. The units of logic within a file may interact with each other. These units may also be exported and implemented by another file or files (i.e. reusable React components, global helper functions). So we have both inter-file and intra-file interactivity between units of logic.
+Files typically contain a grouped set of related units of logic (functions,
+classes, components, etc.), which are related to each other by type or domain.
+The units of logic within a file may interact with each other. These units may
+also be exported and implemented by another file or files (i.e. reusable React
+components, global helper functions). So we have both inter-file and intra-file
+interactivity between units of logic.
 
-These units of logic themselves, and the connections between them, create complexity. For features to exist, some amount of logic, and bonds between related units of logic, must exist. So of course, some amount of complexity is necessary.
+These units of logic themselves, and the connections between them, create
+complexity. For features to exist, some amount of logic, and bonds between
+related units of logic, must exist. So of course, some amount of complexity is
+necessary.
 
 <Image
   src={diagram}
@@ -28,9 +41,19 @@ These units of logic themselves, and the connections between them, create comple
 
 ## Most codebases have extra complexity
 
-In reality, most units of logic in a codebase are not as concise or clear as they could be. They may contain a roundabout way of accomplishing something when a more direct path exists. They may be written in a way in which the purpose of the code is unclear, or does not well reflect the realities of the domain being represented (see: domain-driven design). A function or component which receives too many input arguments may be more complicated to implement than the logic it abstracts away.
+In reality, most units of logic in a codebase are not as concise or clear as
+they could be. They may contain a roundabout way of accomplishing something when
+a more direct path exists. They may be written in a way in which the purpose of
+the code is unclear, or does not well reflect the realities of the domain being
+represented (see: domain-driven design). A function or component which receives
+too many input arguments may be more complicated to implement than the logic it
+abstracts away.
 
-In addition, structural complexity between units of logic can exist. A unit of logic may be grouped somewhere it does not belong, or cannot be easily found. Units of logic can be tightly coupled in ways such that one unit of logic cannot be understood (or modified) without understanding another. When units of logic relate in these ways, additional complexity is created.
+In addition, structural complexity between units of logic can exist. A unit of
+logic may be grouped somewhere it does not belong, or cannot be easily found.
+Units of logic can be tightly coupled in ways such that one unit of logic cannot
+be understood (or modified) without understanding another. When units of logic
+relate in these ways, additional complexity is created.
 
 <Image
   src={reposInReality}
@@ -40,19 +63,34 @@ In addition, structural complexity between units of logic can exist. A unit of l
 
 ## The Ideal State: Minimum Necessary Complexity
 
-For every application, there exists some state of minimum necessary complexity - the fundamental baseline amount for whatever it is you're working on to exist. A state in which nothing is superfluous, unclear, or inefficient. A state in which a minimum amount of effort is necessary to understand and change a codebase. That's the ideal state you want to move the code towards. From the diagrams above, it's the first diagram, not the second.
+For every application, there exists some state of minimum necessary complexity -
+the fundamental baseline amount for whatever it is you're working on to exist. A
+state in which nothing is superfluous, unclear, or inefficient. A state in which
+a minimum amount of effort is necessary to understand and change a codebase.
+That's the ideal state you want to move the code towards. From the diagrams
+above, it's the first diagram, not the second.
 
-Even looking at the two diagrams, it's something that can not only be reasoned about, but also <i>felt</i> intuitively.
+Even looking at the two diagrams, it's something that can not only be reasoned
+about, but also <i>felt</i> intuitively.
 
 ## Why This State Matters
 
-There are many benefits to this state. Less mental overhead is needed to understand the codebase, to troubleshoot it, to modify it, to extend its functionality. Bugs are less frequent; they surface more easily and are more easily resolved.
+There are many benefits to this state. Less mental overhead is needed to
+understand the codebase, to troubleshoot it, to modify it, to extend its
+functionality. Bugs are less frequent; they surface more easily and are more
+easily resolved.
 
-This state also has agentic benefits. The majority of the context of an agent consists of existing code from the codebase. Agents will benefit from a codebase in this state as they copy many of the existing patterns, and more easily intuit the intent of the existing code as they work within it and around it.
+This state also has agentic benefits. The majority of the context of an agent
+consists of existing code from the codebase. Agents will benefit from a codebase
+in this state as they copy many of the existing patterns, and more easily intuit
+the intent of the existing code as they work within it and around it.
 
 ## LLMs and Exponential Decay
 
-Using LLMs will tend to push you further away from that state of minimum necessary complexity. There are many reasons for this - some of them can be addressed by improving the agent's prompt and context, but others are fundamental limits and tradeoffs of the technology.
+Using LLMs will tend to push you further away from that state of minimum
+necessary complexity. There are many reasons for this - some of them can be
+addressed by improving the agent's prompt and context, but others are
+fundamental limits and tradeoffs of the technology.
 
 Those that can be somewhat mitigated by custom instructions include:
 

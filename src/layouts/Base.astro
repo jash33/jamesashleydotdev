@@ -1,19 +1,19 @@
 ---
-import { Font } from 'astro:assets';
-import { ClientRouter } from 'astro:transitions';
-import '../styles/global.css';
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'Writing by James Ashley.' } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const { title, description = "Writing by James Ashley." } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const path = Astro.url.pathname;
-const isBlog = path.startsWith(base + '/writing');
-const isReading = path.startsWith(base + '/reading');
-const isAbout = path.startsWith(base + '/about');
+const isBlog = path.startsWith(base + "/writing");
+const isReading = path.startsWith(base + "/reading");
+const isAbout = path.startsWith(base + "/about");
 ---
 
 <!doctype html>
@@ -36,11 +36,19 @@ const isAbout = path.startsWith(base + '/about');
   <body>
     <div class="container">
       <header class="site-header">
-        <a href={`${base}/`} class="site-name">James Ashley</a>
+        <a href={`${base}/`} class="site-name">
+          James Ashley
+        </a>
         <nav class="site-nav">
-          <a href={`${base}/writing`} class={isBlog ? 'active' : ''}>Writing</a>
-          <a href={`${base}/reading`} class={isReading ? 'active' : ''}>Reading</a>
-          <a href={`${base}/about`} class={isAbout ? 'active' : ''}>About</a>
+          <a href={`${base}/writing`} class={isBlog ? "active" : ""}>
+            Writing
+          </a>
+          <a href={`${base}/reading`} class={isReading ? "active" : ""}>
+            Reading
+          </a>
+          <a href={`${base}/about`} class={isAbout ? "active" : ""}>
+            About
+          </a>
         </nav>
       </header>
       <main>
@@ -48,9 +56,7 @@ const isAbout = path.startsWith(base + '/about');
       </main>
     </div>
     <footer class="site-footer">
-      <div class="container">
-        © {new Date().getFullYear()} James Ashley
-      </div>
+      <div class="container">© {new Date().getFullYear()} James Ashley</div>
     </footer>
   </body>
 </html>
